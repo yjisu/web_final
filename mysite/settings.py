@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
-    
+
 ]
 
 MIDDLEWARE = [
@@ -124,7 +124,10 @@ STATIC_URL = '/static/'
 STATIC_ROOT=os.path.join(BASE_DIR,'static')
 ALLOWED_HOSTS=['127.0.0.1','.pythonanywhere.com']
 
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'blog','static'),]
+STATIC_ROOT= os.path.join(BASE_DIR,'static')

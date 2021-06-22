@@ -1,34 +1,34 @@
+<!DOCTYPE html>
 {% extends 'blog/base.html' %}
+
+<html>
 
 {% block content %}
 <p></p>
-
-            <div class="row mt-5">
-            <div class="col-12">
-              <table class="table">
+<div class="container">
+              <table class="table table-striped">
                 <thead class="bg-info">
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">제목</th>
-                    <th scope="col">아이디</th>
-                    <th scope="col">댓글 수</th>
-                    <th scope="col">작성일</th>
+                    <th ><center># </center></th>
+                    <th ><center>제목 </center></th>
+                    <th ><center>내용 </center></th>
+                    <th ><center>댓글 수 </center></th>
+                    <th ><center>작성일 </center></th>
                   </tr>
                 </thead>
                 <tbody>
                 {% for post in posts %}
                   <tr>
-                    <th scope="row">{{ post.id }}</th>
-                    <td><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></td>
-                    <td>{{ post.author }}</td>
-                    <td>{{ post.comments.count }}</td>
-                    <td>{{ post.published_date }}</td>
+                    <th ><center>{{ post.id }}</center></th>
+                    <td><a href="{% url 'post_detail' pk=post.pk %}"><center>{{ post.title }}</center></a></td>
+                    <td><center>{{ post.author }}</center></td>
+                    <td><center>{{ post.comments.count }}</center></td>
+                    <td><center>{{ post.published_date }}</center></td>
                   </tr>
                   {% endfor %}
                 </tbody>
               </table>
-            </div>
-          </div>
+      <center>
           <div class="row mt-2">
             <div class="col-12">
               <nav aria-label="Page navigation example">
@@ -59,12 +59,14 @@
               </nav>
             </div>
           </div>
+          </center>
           <div class="row mt-2">
             <div class="col-12">
-              <a href="{% url 'post_new' %}"><button class="btn btn-primary" >글쓰기</button></a>
+              <a href="{% url 'post_new' %}"><button class="btn btn-default pull-right" >글쓰기</button></a>
             </div>
           </div>
           <div class="row mt-2">
-
+</div>
 
 {% endblock %}
+</html>

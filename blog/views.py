@@ -9,7 +9,7 @@ from django.core.paginator import Paginator
 # Create your views here.
 def blog(request):
     posts = Post.objects.filter(published_date__lte = timezone.now()).order_by('published_date')
-    all_boards = Post.objects.all().order_by("-title")
+    all_boards = Post.objects.all().order_by("-created_date")
     page = int(request.GET.get('p',1))
     pagenator = Paginator(all_boards,2)
     posts = pagenator.get_page(page)
