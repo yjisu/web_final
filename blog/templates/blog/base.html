@@ -9,7 +9,7 @@
     </head>
     <body>
         <div class="page-header">
-            <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+          
             <h1><a href="/" >upbit</a></h1>
         </div>
         <div class="content container">
@@ -18,8 +18,16 @@
               <a class="col-xs-6 col-md-2" title="입출금" href="#">입출금</a>
               <a class="col-xs-6 col-md-2" title="투자내역" href="#">투자내역</a>
               <a class="col-xs-6 col-md-2" title="코인동향" href="#">코인동향</a>
-              <a class="col-xs-6 col-md-2" title="자유게시판" href="http://127.0.0.1:8000/board/">자유게시판</a></b>
+              <a class="col-xs-6 col-md-2" title="자유게시판" href="/blog">자유게시판</a></b>
             </div>
+            <div class="content container">
+          <div class="row">
+              <div class="col-md-8">
+              {% block content %}
+              {% endblock %}
+              </div>
+          </div>
+      </div>
         </div>
     </body>
 </html>

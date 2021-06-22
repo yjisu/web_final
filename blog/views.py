@@ -1,13 +1,19 @@
 from django.shortcuts import render
 from django.utils import timezone
 from .models import Post
+
 from django.shortcuts import render,get_object_or_404
 from .forms import PostForm
 from django.shortcuts import redirect
+from django.core.paginator import Paginator
 # Create your views here.
-def board(request):
+def blog(request):
     posts = Post.objects.filter(published_date__lte = timezone.now()).order_by('published_date')
-    return render(request, 'blog/board.html', {'posts':posts})
+    all_boards = Post.objects.all().order_by("-title")
+    page = int(request.GET.get('p',1))
+    pagenator = Paginator(all_boards,2)
+    posts = pagenator.get_page(page)
+    return render(request, 'blog/blog.html', {'posts':posts})
 
 def post_detail(request,pk):
     post = get_object_or_404(Post,pk=pk)
