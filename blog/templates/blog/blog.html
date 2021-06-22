@@ -11,6 +11,7 @@
                     <th scope="col">#</th>
                     <th scope="col">제목</th>
                     <th scope="col">아이디</th>
+                    <th scope="col">댓글 수</th>
                     <th scope="col">작성일</th>
                   </tr>
                 </thead>
@@ -19,7 +20,8 @@
                   <tr>
                     <th scope="row">{{ post.id }}</th>
                     <td><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></td>
-                    <td>{{ post.writer }}</td>
+                    <td>{{ post.author }}</td>
+                    <td>{{ post.comments.count }}</td>
                     <td>{{ post.published_date }}</td>
                   </tr>
                   {% endfor %}
